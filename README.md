@@ -2,6 +2,28 @@
 
 ## Environment Variables
 
+### Docker Machine Host
+
+The remote docker machine host to connect to:
+
+```
+DOCKER_HOST: tcp://213.121.126.215:2376
+```
+
+### Docker Compose Dir Name
+
+Docker compose won't see running containers on a host unless they are prepended with an expected name. The name it expects if the current directories name (the last directory in the path).
+
+```
+DOCKER_COMPOSE_DIR_NAME: app-name
+```
+
+### Docker TLS
+
+```
+DOCKER_TLS_VERIFY: '1'
+```
+
 ### Docker Machine Cert Bundle
 Convert a docker-machine cert bundle for sharing by taring and base64 encoding the `ca.pem`, `cert.pem`, and `key.pem` files like the following:
 
