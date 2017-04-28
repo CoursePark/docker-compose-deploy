@@ -21,5 +21,5 @@ echo $DOCKER_COMPOSE | base64 -d | gzip -d > docker-compose.yml
 
 docker-compose pull
 docker-compose down -v
-docker-compose up -d
+docker-compose up -d --remove-orphans
 docker rmi $(docker images -a -q) || true # non 0 exit code doesn't matter for removing unused images
