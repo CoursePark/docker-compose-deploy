@@ -1,11 +1,9 @@
 #!/bin/sh
 
 # extract docker-machine certificate from DOCKER_MACHINE_CERT and configure
-export DOCKER_CERT_PATH=$HOME/.docker/machine/machines/cert
+export DOCKER_CERT_PATH=$HOME/.docker/machine/certs
 mkdir -p $DOCKER_CERT_PATH
-cd $DOCKER_CERT_PATH
-echo $DOCKER_MACHINE_CERT | base64 -d | gzip -d | tar -x
-cd /
+echo $DOCKER_MACHINE_CERT | base64 -d | gzip -d | tar -x -C $DOCKER_CERT_PATH
 
 # extract dockerhub auth file
 if [ ! -z "$DOCKER_CREDENTIAL" ]; then
